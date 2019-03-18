@@ -14,7 +14,13 @@ import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.componen
 import { LoginComponent } from './login/login.component';
 
 import { RouterModule } from "@angular/router";
-import { NgbModule } from "@ng-bootstrap/ng-bootstrap"
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+
+import { AngularFireModule } from "angularfire2";
+import { AngularFireDatabaseModule } from "angularfire2/database";
+import { AngularFireAuthModule } from "angularfire2/auth";
+import { environment } from 'src/environments/environment';
+import { AuthGuardService } from './auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -45,7 +51,9 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap"
       { path: "admin/orders", component: AdminOrdersComponent }
     ])
   ],
-  providers: [],
+  providers: [
+    AuthGuardService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

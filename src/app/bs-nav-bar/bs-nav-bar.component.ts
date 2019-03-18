@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BsNavBarComponent implements OnInit {
 
+  // user = "Yatin Kapoor";
+  user = null;
   constructor() { }
 
   ngOnInit() {
   }
 
+  logout(){
+
+  }
 }
