@@ -21,6 +21,7 @@ import { AngularFireDatabaseModule } from "angularfire2/database";
 import { AngularFireAuthModule } from "angularfire2/auth";
 import { environment } from 'src/environments/environment';
 import { AuthGuardService } from './auth-guard.service';
+import { ProductFormComponent } from './admin/product-form/product-form.component';
 
 @NgModule({
   declarations: [
@@ -34,10 +35,14 @@ import { AuthGuardService } from './auth-guard.service';
     MyOrdersComponent,
     AdminProductsComponent,
     AdminOrdersComponent,
-    LoginComponent
+    LoginComponent,
+    ProductFormComponent
   ],
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
     NgbModule.forRoot(),
     RouterModule.forRoot([
       { path: "", component: HomeComponent },
@@ -48,7 +53,8 @@ import { AuthGuardService } from './auth-guard.service';
       { path: "my/orders", component: MyOrdersComponent },
       { path: "login", component: LoginComponent },
       { path: "admin/products", component: AdminProductsComponent },
-      { path: "admin/orders", component: AdminOrdersComponent }
+      { path: "admin/orders", component: AdminOrdersComponent },
+      { path: "admin/products/new", component: ProductFormComponent }
     ])
   ],
   providers: [
